@@ -1,0 +1,55 @@
+table _Measures
+	lineageTag: 0e29f1ac-8f86-4b23-b0e1-af8935a1c667
+
+	measure 'Total Revenue' = SUM('processed_respiratory_sales'[Revenue])
+		lineageTag: 074d42d8-0cbb-49a1-b9d3-83c3d9fed7b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Net Profit' = SUM('processed_respiratory_sales'[Net_Profit])
+		lineageTag: db6dea5c-5fe9-49f0-94bd-3866a9ba4c6e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Margin %' = DIVIDE([Total Net Profit], [Total Revenue], 0)
+		lineageTag: 6d1d386e-9100-4531-b3f8-52d182b5ccd6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Units Sold' = SUM('processed_respiratory_sales'[Quantity_Sold])
+		formatString: 0
+		lineageTag: ebf3469c-eae7-47f9-8370-e4a5cd442eb8
+
+	measure 'Maintenance Drag %' = DIVIDE(SUM('processed_respiratory_sales'[Service_Maintenance_Cost]), SUM('processed_respiratory_sales'[Gross_Profit]), 0)
+		lineageTag: dab4c1cf-6252-4f66-9e18-f3c46945e5fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Revenue_Pct = ```
+			
+			VAR OverallTotal = 
+			    CALCULATE(
+			        SUM(processed_respiratory_sales[Revenue]), 
+			        ALLSELECTED(processed_respiratory_sales)
+			    )
+			VAR CurrentCategoryRevenue = 
+			    SUM(processed_respiratory_sales[Revenue])
+			RETURN
+			    DIVIDE(CurrentCategoryRevenue, OverallTotal, 0)
+			```
+		lineageTag: ad1d6377-207c-48ea-b0b8-d40b8a0cd71a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

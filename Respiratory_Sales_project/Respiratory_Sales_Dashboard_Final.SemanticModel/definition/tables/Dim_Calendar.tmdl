@@ -1,0 +1,82 @@
+table Dim_Calendar
+	lineageTag: 447f2223-d825-43f1-b33a-988c9ef6a6c7
+
+	column Date
+		formatString: General Date
+		lineageTag: 332f600d-47ae-4b31-a7bc-3b0823bc2982
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: da24f5b4-0e73-49a0-889e-20400c6c047f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 632af6a0-0021-4ef3-b19e-2fcd7bb81ba3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: f97e36ce-ae5d-45c1-b112-a407d990b4b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year'
+		lineageTag: 363db3a5-9400-45a8-aad9-8e6cb1de09c6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: fe079b72-0479-40f2-b94e-052d85d82007
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Sort'
+		formatString: 0
+		lineageTag: 9ece4b7b-ad69-4ba5-abf5-079b1ceb6e37
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year Month Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Calendar = calculated
+		mode: import
+		source =
+				
+				VAR MinDate = MIN('processed_respiratory_sales'[Order_Date])
+				VAR MaxDate = MAX('processed_respiratory_sales'[Order_Date])
+				RETURN
+				ADDCOLUMNS (
+				    CALENDAR ( MinDate, MaxDate ),
+				    "Year", YEAR ( [Date] ),
+				    "Month Number", MONTH ( [Date] ),
+				    "Month", FORMAT ( [Date], "mmm" ),
+				    "Month Year", FORMAT ( [Date], "mmm yyyy" ),
+				    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+				    "Year Month Sort", YEAR ( [Date] ) * 100 + MONTH ( [Date] )
+				)
+
+	annotation PBI_Id = 9a412358aeff465491753441b7f20680
+

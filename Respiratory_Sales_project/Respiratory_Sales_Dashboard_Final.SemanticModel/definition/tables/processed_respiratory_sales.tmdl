@@ -1,0 +1,248 @@
+table processed_respiratory_sales
+	lineageTag: 906ad68c-99cb-442c-bf91-083ff3052bff
+
+	column Order_ID
+		dataType: string
+		lineageTag: 2d0c5bb3-e022-485e-91b0-fe6a4c17bc74
+		summarizeBy: none
+		sourceColumn: Order_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8aa78694-0c53-4756-bb9f-42107a691abb
+		summarizeBy: none
+		sourceColumn: Order_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Device_Type
+		dataType: string
+		lineageTag: 029612de-19ae-4dde-a6d5-e9db4013f982
+		summarizeBy: none
+		sourceColumn: Device_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer_Vendor
+		dataType: string
+		lineageTag: c8594a38-1208-40e5-ad0b-c53363ece780
+		summarizeBy: none
+		sourceColumn: Manufacturer_Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hospital_Name
+		dataType: string
+		lineageTag: fa72cf70-6148-4dc6-abba-841b2979cafe
+		summarizeBy: none
+		sourceColumn: Hospital_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hospital_Type
+		dataType: string
+		lineageTag: 3eee9a79-7216-4597-b86a-cc1f79b99eb8
+		summarizeBy: none
+		sourceColumn: Hospital_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: a6eacc87-efcd-490a-a530-359fe7bee633
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 020fd7c7-2771-4d91-9e94-fc70cd541b9b
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity_Sold
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e6c6290-75a3-4134-a4cf-eb15f0dae96a
+		summarizeBy: sum
+		sourceColumn: Quantity_Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit_Cost
+		dataType: double
+		lineageTag: 2b4173ce-2f93-459d-941b-79c5de38954f
+		summarizeBy: sum
+		sourceColumn: Unit_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Unit_Selling_Price
+		dataType: double
+		lineageTag: b410a1dd-5c59-4b9b-824b-fe84d3568f61
+		summarizeBy: sum
+		sourceColumn: Unit_Selling_Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Cost
+		dataType: double
+		lineageTag: 66745da0-e252-4674-b89e-962ee67eab03
+		summarizeBy: sum
+		sourceColumn: Total_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Revenue
+		dataType: double
+		lineageTag: 6352d257-c177-43cb-92e0-606c7c8ad7fb
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Gross_Profit
+		dataType: double
+		lineageTag: 229da235-bb15-481f-8747-48f02b69c9ff
+		summarizeBy: sum
+		sourceColumn: Gross_Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Service_Maintenance_Cost
+		dataType: double
+		lineageTag: 486bac1e-a237-44c6-b19b-06888beae4b6
+		summarizeBy: sum
+		sourceColumn: Service_Maintenance_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Net_Profit
+		dataType: double
+		lineageTag: aec95dc8-e853-4f28-8c19-f8d315dc5a87
+		summarizeBy: sum
+		sourceColumn: Net_Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Profit_Margin_Pct
+		dataType: double
+		lineageTag: 6196f21e-047f-4cfa-b17f-24f7f4108545
+		summarizeBy: sum
+		sourceColumn: Profit_Margin_Pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Contract_Type
+		dataType: string
+		lineageTag: 42f079bc-5f4a-4301-a551-aacfffed51b6
+		summarizeBy: none
+		sourceColumn: Contract_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Channel
+		dataType: string
+		lineageTag: 07359173-58c0-453f-822a-0a33375b8936
+		summarizeBy: none
+		sourceColumn: Sales_Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warranty_Years
+		dataType: int64
+		formatString: 0
+		lineageTag: 629ede72-1c7d-46db-9310-4d1ae3b46394
+		summarizeBy: sum
+		sourceColumn: Warranty_Years
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Representative
+		dataType: string
+		lineageTag: 7cbb4c55-cd73-4916-8a50-0c10454d3d53
+		summarizeBy: none
+		sourceColumn: Sales_Representative
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Number
+		dataType: int64
+		formatString: 0
+		lineageTag: dd100d1b-50e9-46de-8751-678bf7a3d85e
+		summarizeBy: sum
+		sourceColumn: Month_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Name
+		dataType: string
+		lineageTag: ce0c2c57-0a79-4faf-801f-a109581fe2cc
+		summarizeBy: none
+		sourceColumn: Month_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year_Month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1b897dcc-8198-4a7a-bcf9-73dc9f2926ad
+		summarizeBy: none
+		sourceColumn: Year_Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Primary_Devices =
+			
+			SWITCH(
+			    processed_respiratory_sales[Device_Type],
+			    "Conventional Ventilator", "Conventional Ventilation",
+			    "Chronic Ventilator", "Chronic Ventilation",
+			    "BiPAP", "Non-Invasive",
+			    "CPAP", "Non-Invasive",
+			    "HFNC", "High Flow Systems",
+			    BLANK()
+			)
+		lineageTag: d8d0891a-2dae-43c5-b9e4-abf79b4b1a17
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition processed_respiratory_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Downloads\processed_respiratory_sales.csv"),[Delimiter=",", Columns=24, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", type text}, {"Order_Date", type date}, {"Device_Type", type text}, {"Manufacturer_Vendor", type text}, {"Hospital_Name", type text}, {"Hospital_Type", type text}, {"Department", type text}, {"Region", type text}, {"Quantity_Sold", Int64.Type}, {"Unit_Cost", type number}, {"Unit_Selling_Price", type number}, {"Total_Cost", type number}, {"Revenue", type number}, {"Gross_Profit", type number}, {"Service_Maintenance_Cost", type number}, {"Net_Profit", type number}, {"Profit_Margin_Pct", type number}, {"Contract_Type", type text}, {"Sales_Channel", type text}, {"Warranty_Years", Int64.Type}, {"Sales_Representative", type text}, {"Month_Number", Int64.Type}, {"Month_Name", type text}, {"Year_Month", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
